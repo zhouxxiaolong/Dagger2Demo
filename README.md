@@ -1,3 +1,6 @@
 # Dagger2Demo
-dagger
-更新androidstudio3.0，使用dagger2
+
+##Support Android MVP
+
+> 之前的版本实在是太水了
+

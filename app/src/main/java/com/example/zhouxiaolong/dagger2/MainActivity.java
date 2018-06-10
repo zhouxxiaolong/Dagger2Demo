@@ -1,22 +1,34 @@
 package com.example.zhouxiaolong.dagger2;
 
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.widget.Toast;
 
+import com.example.zhouxiaolong.dagger2.base.BaseActivity;
+import com.example.zhouxiaolong.dagger2.util.ActivityUtil;
 
-public class MainActivity extends AppCompatActivity {
+import javax.inject.Inject;
+import dagger.android.DispatchingAndroidInjector;
 
+/**
+ * Created
+ * User: zhouxiaolong
+ * Date: 2017/7/11
+ * Contact with 1016579848@qq.com
+ */
+public class MainActivity extends BaseActivity {
 
-    Vehicle vehicle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        VehicleComponent vehicleComponent = DaggerVehicleComponent.builder().vehicleModule(new VehicleModule()).build();
-        vehicle = vehicleComponent.provideVehicle();
-        Toast.makeText(this, String.valueOf(vehicle.getSpeed()), Toast.LENGTH_SHORT).show();
+        if (savedInstanceState == null) {
+            ActivityUtil.addFragmentToActivity(
+                    getSupportFragmentManager(),
+                    MainFragment.newInstance(),
+                    R.id.fl_main_container
+            );
+        }
     }
 
 }
