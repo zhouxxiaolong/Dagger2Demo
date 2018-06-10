@@ -17,6 +17,8 @@ import dagger.android.DispatchingAndroidInjector;
  */
 public class MainActivity extends BaseActivity {
 
+    @Inject
+    MainFragment mainFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class MainActivity extends BaseActivity {
         if (savedInstanceState == null) {
             ActivityUtil.addFragmentToActivity(
                     getSupportFragmentManager(),
-                    MainFragment.newInstance(),
+                    mainFragment,
                     R.id.fl_main_container
             );
         }

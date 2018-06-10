@@ -9,11 +9,17 @@ import android.view.ViewGroup;
 
 import com.example.zhouxiaolong.dagger2.base.BaseFragment;
 
+import javax.inject.Inject;
+
 
 public class MainFragment extends BaseFragment {
 
     public static MainFragment newInstance() {
         return new MainFragment();
+    }
+
+    @Inject
+    public MainFragment() {
     }
 
     @Override
